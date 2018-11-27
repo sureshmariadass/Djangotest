@@ -1,0 +1,170 @@
+
+{% load i18n %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trainocate Courses</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+
+
+
+
+</head>
+<body>
+	<!-- Header -->
+	{% include "header.html" %}
+	<!-- /Header -->
+
+	<!-- header wrapper -->
+	<div class="header-wrapper sm-padding bg-grey">
+		<div class="container">
+			<h2>Our Customized Courses</h2>
+		</div>
+	</div>
+	<!-- /header wrapper -->
+
+
+
+	<!-- Blog -->
+	<div id="blog" class="section md-padding">
+		<!-- Container -->
+		<div class="container">
+			<!-- Row -->
+			<div class="row">
+				<!-- Main -->
+				<main id="main" class="col-md-9">
+					<h3 class="title">Viewing {{ blogs.count }} Courses</h3>
+							<div class="row1">
+
+{% for temp in blogs %}
+  <div class="column">
+
+    <div class="content">
+
+      <a href="{% url 'detail' id=temp.id %}"><img src="{{temp.image.url}}" alt="{{temp.name}}" style="width:100%; height: 100%"></a>
+      <hr>
+      <h3>{{ temp.name }}</h3>
+      <h4>{{ temp.courseid }}</h4>
+			<h4>{{temp.category}} </h4>
+      <hr>
+      <p>Started :{{temp.start_date}}</p>
+         </div>
+
+  </div>
+
+{% endfor %}
+			<!-- comment -->
+							<div class="media">
+								<div class="media-left">
+									<img class="media-object" src="{% static './img/perso2.jpg' %}" alt="">
+								</div>
+								<div class="media-body">
+								</div>
+							</div>
+							<!-- /comment -->
+							<!-- comment -->
+							<div class="media">
+								<div class="media-left">
+									<img class="media-object" src="{% static './img/perso1.jpg' %}" alt="">
+								</div>
+				</main>
+				<!-- /Main -->
+				<!-- Aside -->
+				<aside id="aside" class="col-md-3 well">
+					<!-- Search -->
+					<div class="widget">
+						<div class="widget-search">
+							<div class="row">
+								<div class="col-md-12">
+									<span class="border border-primary">
+								<form method="GET" action="">
+							<input class="search-input" type="text" name="q" placeholder="search" value='{{ request.GET.q }}' style="width:193px">
+							<input class="btn btn-primary" type="Submit" value="Search" style="height:41px">
+						</form>
+								</span>
+						</div>
+						</div>
+						</div>
+					</div>
+					<!-- /Search -->
+					<!-- Category -->
+
+
+
+					<div class="widget">
+						<h3 class="title">Category</h3>
+						<div class="widget-category">
+							<ul class=" list-group">
+								<li class="list-group-item"><a class="btn btn-primary" href="{% url 'blog' %}">All Courses ({{ blogs1.count }})</a></li>
+							{% for i,j in dat%}
+							 <li class="list-group-item"><form method="GET" action="">
+						<input class="search-input" type="hidden" name="filter" placeholder="search" value='{{i.category}}' style="width:210px">
+						<input class="btn btn-primary" type="Submit" value="{{i.category}} ({{j.total}})" style="width:100%"><p class="pull-right" style="color:black"></p>
+					</form> </li>{% endfor %}
+
+					</ul>
+						</div>
+					</div>
+					<!-- /Category -->
+					<!-- /Tags -->
+				</aside>
+				<!-- /Aside -->
+			</div>
+			<!-- /Row -->
+		</div>
+		<!-- /Container -->
+	</div>
+	<!-- /Blog -->
+
+
+
+
+<!--
+{{clist}}-->
+	<!-- Footer -->
+	<!-- {% if clist %}
+	{{ clist|length }}
+{% endif %}-->
+{% include "footer.html" %}
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<img src="{% static './img/fav.png' %}" class="preimg"><br><br>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>

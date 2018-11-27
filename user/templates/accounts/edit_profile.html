@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Profile</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  <!-- Owl Carousel -->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+  <!-- Magnific Popup -->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <!-- Header -->
+  {% include "header.html" %}
+  <!-- /Header -->
+  <!-- Blog -->
+  <hr>
+
+
+<div class="container" style="width: 50%;">
+  <form method="POST">
+{% csrf_token %}
+{{form.as_p }}
+<input class="btn btn-primary pull-right" type="Submit" value="Submit" >
+    </form>
+  </div>
+
+
+
+
+{% include "footer.html" %}
+
+  <!-- /Blog -->
+  <div id="back-to-top"></div>
+  <!-- /Back to top -->
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader">
+      <img src="{% static './img/fav.png' %}" class="preimg"><br><br>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!-- /Preloader -->
+  <!-- jQuery Plugins -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load staticfiles %}
+
+
+<!-- Footer -->
+<footer id="footer" class="sm-padding bg-dark">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <!-- footer logo -->
+        <div class="footer-logo">
+          <a href="{% url 'Home' %}"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+        </div>
+        <!-- /footer logo -->
+
+        <!-- footer follow -->
+
+
+
+        <ul>
+          <li><a href="{% url 'contact'%}" target="_blank"><i class="glyphicon glyphicon-phone-alt">&nbsp;</i>Contact</a></li>
+          <li><a href="{% url 'about'%}" target="_blank"><i class="glyphicon glyphicon-list-alt">&nbsp;</i>About</a></li>
+          <li><a href="{% url 'termsofservice'%}" target="_blank"><i class="glyphicon glyphicon-pencil">&nbsp;</i>Terms of service</a></li>
+        </ul>
+</div>
+<div class="col-md-6 text-right">
+<div style="margin-right:110px">
+<h3 class="text-right text-info" >Follow Us</h3>
+</div>
+        <ul class="footer-follow">
+          <li><a href="https://www.facebook.com/Trainocate-1224598267656077/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/TrainocateIndia" target="_blank"><i class="fa fa-twitter"></i></a></li>
+
+          <li><a href="https://www.linkedin.com/company/trainocateindia" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCSx4W7LbATGPFtO8JceC8JA" target="_blank"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+        <!-- /footer follow -->
+</div>
+</div>
+<!-- /Row -->
+        <!-- footer copyright -->
+        <div class="footer-copyright">
+          <p>Copyright © 2018. All Rights Reserved.</p>
+        </div>
+        <!-- /footer copyright -->
+
+
+
+  </div>
+  <!-- /Container -->
+
+</footer>
+<!-- /Footer -->
+
+<!-- Back to top -->
+<div id="back-to-top"></div>
+<!-- /Back to top -->

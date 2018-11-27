@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ courseid.courseid }} Exam</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
+
+var questions = [
+{% for tem in context %}
+    [ "{{ tem.question }}", "{{ tem.option1 }}", "{{ tem.option2 }}", "{{ tem.option3 }}","{{ tem.option4 }}", "{{ tem.answer }}" ]{% if not forloop.last %},{% endif %}
+{% endfor %}
+];
+
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "";
+		_("test_status").innerHTML = "Congrats, You Completed the Exam";
+    document.getElementById("asd").style.display="block";
+    document.getElementById("myText").value = correct;
+
+
+
+
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	chD = questions[pos][4];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='D'> "+chD+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][5]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+
+
+
+
+</script>
+
+</head>
+
+
+
+<body>
+  {% include "header.html" %}
+
+
+	<div id="blog" class="section cm-padding" >
+				<nav id="nav" class="nav-transparent well">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
+
+	<img src="{% static 'img/col.png' %}" height="30" width="30">
+					</button>
+				</div>
+<div id="myNavbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-left">
+
+
+					<li><a href="{% url 'coursehome' courseid=courseid.courseid %}" style="color: #ff5733">Home</a></li>
+
+
+					<li><a href="{% url 'coursecontent' courseid=courseid.courseid %}" style="color: #ff5733">Course</a></li>
+					<li><a href="{% url 'progress' courseid=courseid.courseid %}" style="color: #ff5733">Progress</a></li>
+
+
+					<li><a href="{% url 'requirements' courseid=courseid.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
+					<li><a href="{% url 'schedules' courseid=courseid.courseid %}" style="color: #ff5733">Schedules</a></li>
+
+					{% if request.user.is_staff and request.user.is_superuser %}
+
+					<li>	<a href="{% url 'add_question' courseid=courseid.courseid %}">Add Questions</a></li>
+					{% endif %}
+
+				</ul>
+			</div>
+				<!-- /Main navigation -->
+			</div>
+				</nav>
+			</div>
+
+
+
+
+<div class="container well">
+<h4 id="test_status"></h4>
+<div id="test"></div>
+
+
+
+
+<form method="POST" id="asd"  class="text-center" style="display:none" >{% csrf_token %}
+  <input type="hidden" value="{{ user.username }}" name="user">
+  <input type="hidden" value="{{ courseid.courseid }}" name="cid">
+  <input type="hidden"  id="myText" value="12" name="correct">
+  <input type="hidden" value="{{ context.count }}" name="total">
+  <input class="btn btn-primary" type="submit" value="View Result" >
+</form>
+</div>
+{% include "footer.html" %}
+</body>
+</html>

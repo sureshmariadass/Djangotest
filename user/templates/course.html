@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trainocate Courses</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+	<style>
+	video {
+	    width: 100%;
+	    height: auto;
+	}
+	</style>
+
+
+</head>
+<body>
+	<!-- Header -->
+{% include "header.html" %}
+	<!-- /Header -->
+	<!-- Blog -->{% if user.is_authenticated %}
+	<div id="blog" class="section cm-padding" >
+				<nav id="nav" class="nav-transparent well">
+
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
+
+	<img src="{% static 'img/col.png' %}" height="30" width="30">
+					</button>
+				</div>
+<div id="myNavbar" class="collapse navbar-collapse">
+
+				<ul class="nav navbar-nav navbar-left" >
+
+					<li><a href={% for tit in coursetit %} "{% url 'coursehome' courseid=tit.courseid %}" {% endfor %}
+						style="color: #ff5733">Home</a></li>
+
+					<li class="active"><a href= {% for tit in coursetit %}"{% url 'coursecontent' courseid=tit.courseid %}"{% endfor %} style="color: #ff5733">Course</a></li>
+
+<li><a href= {% for tit in coursetit %}"{% url 'progress' courseid=tit.courseid %}"{% endfor %} style="color: #ff5733">Progress</a></li>
+					<li><a href= {% for home in coursetit %} "{% url 'requirements' courseid=home.courseid %}" {% endfor %} style="color: #ff5733">Basic Requirements</a></li>
+					<li><a href= {% for home in coursetit %} "{% url 'schedules' courseid=home.courseid %}" {% endfor %} style="color: #ff5733">Schedules</a></li>
+
+				</ul>
+				</div>
+				<!-- /Main navigation -->
+			</div>
+				</nav>
+			</div>
+		<div class="container">
+			<div class="row well">
+			<div class="col-md-3" style="height:100%;">
+				{% for tit in coursetit %}
+				<ul class=" list-group">
+					<li class="list-group-item"><a href="?page={{ forloop.counter }}">{{tit.sub_title}}</a></li>
+
+
+
+			{% endfor %}
+
+			<li class="list-group-item">	<a href="{% url 'exam' courseid=courseid.courseid %}">Exam</a></li>
+
+
+
+				 </ul>
+			</div>
+
+			<div class="col-md-9" style="padding-left:30px; border-left: 3px solid #ccc;">
+
+
+
+<div class="row">
+	<div class="btn-block pull-right">
+		<!-- {% if coursecontent.has_previous %}
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="?page=1">&laquo;&laquo;&laquo;</a> -->
+	 <a class="btn btn-primary pull-left" href="?page={{ coursecontent.previous_page_number }}">&laquo;Previous</a>
+	 <!-- {% endif %} -->
+
+
+							 <!-- <span class="current">
+									 Page {{ coursecontent.number }} of {{ coursecontent.paginator.num_pages }}.
+							 </span> -->
+
+
+							 	<!-- {% if coursecontent.has_next %} -->
+							  <a class="btn btn-primary pull-right" href="?page={{ coursecontent.next_page_number }}">Next&raquo; </a>
+							  <!-- <a href="?page={{ coursecontent.paginator.num_pages }}">&raquo;&raquo;&raquo;</a>
+							 {% endif %} -->
+							 </div>
+</div>
+
+
+
+			 <br>
+			 <br>
+			 {% for tit in coursecontent %}
+			<center>
+			 <video width="550" controls>
+			 <source src="{{tit.video.url}}" type="video/mp4">
+			 <source src="mov_bbb.ogg" type="video/ogg">
+			 Your browser does not support HTML5 video.
+			</video>
+		</center>
+			<p style="text-align:justify;margin-right: 20px;"><br><br><t>{{tit.explain}}<br><br></p>
+
+
+
+			{% endfor %}
+
+
+			</div>
+
+	</div>
+
+
+	</div>
+<div>
+			<!-- /Row -->
+			{%endif %}
+
+
+
+
+			<!-- Footer -->
+{% include "footer.html" %}
+
+			<!-- jQuery Plugins -->
+			<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+			</body>
+
+			</html>

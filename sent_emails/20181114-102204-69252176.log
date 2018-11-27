@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: mariadass25@gmail.com
+Date: Wed, 14 Nov 2018 04:52:04 -0000
+Message-ID: <154217112404.4484.7994201609681574268@Students-PC>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/MjE/51a-3a1b90323e60120c04a8/
+
+Your username, in case you've forgotten: admin2
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

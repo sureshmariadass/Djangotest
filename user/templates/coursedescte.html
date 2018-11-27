@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trainocate Courses</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+	<!-- Header -->
+	<header>
+		<!-- Nav -->
+		<nav id="nav" class="navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="{% url 'Home' %}">
+							<img class="logo" src="{% static 'img/logo.png' %}" alt="logo">
+						</a>
+					</div>
+					<!-- /Logo -->
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					{% if user.is_authenticated %}
+					{% else %}
+					<li><a href="{% url 'register' %}">Register</a>
+					<li><a href="{% url 'login' %}">Login</a>
+						{% endif %}
+					<li><a href="{% url 'blog' %}">Explore Courses</a>
+					<li class="has-dropdown"><a>Other Courses</a>
+						<ul class="dropdown">
+							<li><a href="#">Microsft</a></li>
+							<li><a href="#">Cisco</a></li>
+						</ul>
+					</li>
+					<ul class="main-nav nav navbar-nav navbar-right">
+					<li class="has-dropdown"><a><i class="fa fa-user-circle-o"></i></a>
+						<ul class="dropdown">
+							<li><a href="#">{{user.username}}</a></li>
+							{% if user.is_authenticated %}
+							<li><a href="{% url 'logout' %}">Logout</a></li>
+							{% else %}
+							<li><a href="{% url 'login' %}">Login</a></li>
+							{% endif %}
+						</ul>
+				</ul>
+				<!-- /Main navigation -->
+			</div>
+		</nav>
+		<!-- /Nav -->
+		<!-- header wapper -->
+
+
+		<div class="header-wrapper sm-padding bg-grey">
+			<div class="table">
+				<h3>{{instance.name}} {{instance.courseid}}</h3>
+				<h3>Trainocate</h3>
+				<div class="himg">
+				<img src="{{instance.image.url}}" class="himgt">
+			</div>
+				<hr>
+				{% if user.is_authenticated %}
+			<a href="{% url 'coursehome' courseid=instance.courseid %}">	<button class="enr">Enroll Now to Start the Course</button></a>
+			{% else %}
+			<a href="{% url 'login' %}">	<button class="enr">Enroll Now to Start the Course</button></a>
+			{% endif %}
+			</div>
+			<!-- "{% url 'coursecontent' courseid=instance.courseid %}" -->
+		</div>
+		<!-- /header wrapper -->
+	</header>
+
+	<!-- /Header -->
+	<!-- Blog -->
+	<div id="blog" class="section md-padding">
+		<!-- Container -->
+		<div class="container">
+			<!-- Row -->
+			<div class="row">
+				<!-- Main -->
+				<main id="main" class="col-md-9">
+							<h1 style="text-align: center;color: #ff5733;">{{instance.name}}</h1>
+				<p style="padding-left: 60px;">{{instance.description }}
+				</p>
+				<p style="padding-left: 60px;">This is a self-paced course that helps you to understand the fundamentals of {{instance.name}}.</p>
+				<div class="col-sm-4">
+					<div class="ic">
+						<a href="{% url 'coursehome' courseid=instance.courseid %}"> <i class="fa fa-info-circle" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i></a>
+						<h4>About {{ instance.courseid }}</h4>
+						<p>Get a brief idea about this course to gain interest about the contents</p>
+					</div></div>
+					<div class="col-sm-4">
+					<div class="ic">
+					<a href="{% url 'requirements' courseid=instance.courseid %}">	<i class="fa fa-newspaper-o" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i>
+</a>
+						<h4>Basic Requirements</h4>
+						<p>Get to know the basic requirements to have better
+understanding about this course</p>
+					</div></div>
+					<div class="col-sm-4">
+					<div class="ic">
+						<a href="{% url 'schedules' courseid=instance.courseid %}">
+						<i class="fa fa-calendar-plus-o" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i>
+					</a>
+						<h4>Scheduled Dates</h4>
+						<p>This course will be live until the given scheduled dates. Dont miss it!</p>
+					</div></div>
+				</main>
+			</div>
+			<!-- /Row -->
+		</div>
+		<!-- /Container -->
+	</div>
+	<!-- /Blog -->
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark">
+		<!-- Container -->
+		<div class="container">
+			<!-- Row -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="{% url 'Home' %}"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+					</div>
+					<!-- /footer logo -->
+					<!-- footer follow -->
+
+
+					<center>
+					<ul id="menu">
+						<li><a href="{% url 'contact'%}" target="_blank">Contact</a></li>
+						<li><a href="{% url 'about'%}" target="_blank">About</a></li>
+						<li><a href="{% url 'termsofservice'%}" target="_blank">Termsofservice</a></li>
+					</ul>
+				</center>
+
+					<ul class="footer-follow">
+						<li><a href="https://www.facebook.com/Trainocate-1224598267656077/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/TrainocateIndia" target="_blank"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://plus.google.com/104857456196761285469" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="https://www.instagram.com/trainocateindia/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.linkedin.com/company/trainocateindia" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCSx4W7LbATGPFtO8JceC8JA" target="_blank"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+					<!-- /footer follow -->
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<p>Copyright © 2018. All Rights Reserved. Designed by <a href="https://trainocate.com" target="_blank">Trainocate</a></p>
+					</div>
+					<!-- /footer copyright -->
+				</div>
+			</div>
+			<!-- /Row -->
+		</div>
+		<!-- /Container -->
+	</footer>
+	<!-- /Footer -->
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<img src="{% static './img/fav.png' %}" class="preimg"><br><br>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

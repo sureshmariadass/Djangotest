@@ -1,0 +1,149 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Progress</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+	<style>
+
+	.active, li:hover {
+		background: transparent;
+		color: #6195FF;
+	}
+	.nav>li>a:after {
+			content: "";
+			display: block;
+			background-color: #6195FF;
+			height: 2px;
+			width: 0%;
+			-webkit-transition: 0.2s width;
+			transition: 0.2s width;
+	}
+	li>a:hover:after, li.active>a:after {
+			width: 100%;
+	}
+	</style>
+
+
+</head>
+<body>
+<div id="header"></div>
+
+   {% include "header.html" %}
+
+
+	<!-- Blog -->
+	<div id="blog" class="section cm-padding" >
+				<nav id="nav" class="nav-transparent well">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
+
+	<img src="{% static 'img/col.png' %}" height="30" width="30">
+					</button>
+				</div>
+<div id="myNavbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-left">
+
+					{% for home in courseref %}
+					<li><a href="{% url 'coursehome' courseid=home.courseid %}" style="color: #ff5733">Home</a></li>
+{% endfor %}
+				  {% if user.is_authenticated %}
+					{% for home in courseref %}
+					<li><a href="{% url 'coursecontent' courseid=home.courseid %}" style="color: #ff5733">Course</a></li>
+          <li class="active"><a href="{% url 'progress' courseid=home.courseid %}" style="color: #ff5733">Progress</a></li>
+
+					{% endfor %}
+
+          {% endif %}
+					{% for home in courseref %}
+					<li><a href="{% url 'requirements' courseid=home.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
+					<li><a href="{% url 'schedules' courseid=home.courseid %}" style="color: #ff5733">Schedules</a></li>
+
+					{% endfor %}
+
+				</ul>
+			</div>
+				<!-- /Main navigation -->
+			</div>
+				</nav>
+			</div>
+<!--blog-->
+
+
+		<div class="container well">
+
+<h4> Your result</h4>
+
+<table class="table table-bordered table-striped">
+
+
+	<thead>
+	  <tr>
+		<th>{% trans "DateTime" %}</th>
+		<th>{% trans "Score" %}</th>
+		<th>{% trans "Possible Score" %}</th>
+
+	  </tr>
+	</thead>
+
+	<tbody>
+
+	  {% for exam in progs %}
+
+    {% if exam.cid == courseid.courseid %}
+    {% if exam.user == user.username %}
+
+	  <tr>
+		<td>{{ exam.date}}</td>
+		<td>{{ exam.correct }}</td>
+		<td>{{ exam.total }}</td>
+
+	  </tr>
+    {% endif %}
+      {% endif %}
+
+	  {% endfor %}
+
+	</tbody>
+
+  </table>
+
+    </div>
+<br><br><br><br><br><br><br><br><br><br>
+
+			<!-- /Row -->
+{% include "footer.html" %}
+
+
+			<!-- jQuery Plugins -->
+			<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+			</body>
+
+			</html>

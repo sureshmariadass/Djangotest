@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trainocate Courses</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+
+
+
+</head>
+<body>
+	<!-- Header -->
+{% include "header.html" %}
+	<!-- /Header -->
+	<!-- Blog -->
+	<div id="blog" class="section cm-padding" >
+				<nav id="nav" class="nav-transparent well">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
+
+	<img src="{% static 'img/col.png' %}" height="30" width="30">
+					</button>
+				</div>
+				<div id="myNavbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-left" >
+					{% for home in cohome %}
+					<li><a href="{% url 'coursehome' courseid=home.courseid %}" style="color: #ff5733">Home</a></li>
+					{% endfor %}
+					{% if user.is_authenticated %}
+					{% for home in cohome %}
+					<li><a href="{% url 'coursecontent' courseid=home.courseid %}" style="color: #ff5733">Course</a></li>
+					<li><a href="{% url 'progress' courseid=home.courseid %}" style="color: #ff5733">Progress</a></li>
+					{% endfor %}
+					
+					{% endif %}
+					{% for home in cohome %}
+					<li><a href="{% url 'requirements' courseid=home.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
+					<li class="active"><a href="{% url 'schedules' courseid=home.courseid %}" style="color: #ff5733">Schedules</a></li>
+					{%endfor%}
+				</ul>
+			</div>
+				<!-- /Main navigation -->
+			</div>
+				</nav>
+			</div>
+		<div class="container">
+			<div class="row well">
+{% for home in cohome %}
+<div class="container">
+<h3> BASIC COURSE INFORMATION</h3>
+
+			<ul class="list-group">
+<li type="square">&nbsp;Organization:<span>&nbsp;</span><strong>Trainocate</strong></li>
+<li type="square">&nbsp;Course Number: &nbsp; &nbsp;<strong>{{home.courseid}}</strong></li>
+<li type="square">&nbsp;Course Display Name: &nbsp;<strong>{{home.name}}<br></strong></li>
+<li type="square">&nbsp;Course Start Date:<span> </span><strong>{{home.start_date}}</strong></li>
+<li type="square">&nbsp;Course End Date: &nbsp;<strong>{{home.end_date}}</strong></li>
+<li type="square">&nbsp;Has the course started? &nbsp;<strong>Yes</strong></li>
+<li type="square">&nbsp;Has the Course ended? &nbsp;<strong>No</strong></li>
+
+</ul>
+</div>
+{%endfor%}
+</div>
+	</div>
+
+	</div>
+  <!--blog-->
+			<!-- /Row -->
+			<!-- Footer -->
+{% include "footer.html" %}
+
+
+			<!-- jQuery Plugins -->
+			<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+			<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+			</body>
+
+			</html>
