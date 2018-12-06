@@ -23,6 +23,74 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
 
+
+</head>
+
+
+
+<body>
+  {% include "header.html" %}
+
+
+	<div id="blog" class="section cm-padding" >
+				<nav id="nav" class="nav-transparent well">
+
+			<div class="container">
+
+				<div class="navbar-header">
+				
+					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
+
+	<img src="{% static 'img/col.png' %}" height="30" width="30">
+					</button>
+				</div>
+<div id="myNavbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-left">
+
+
+					<li><a href="{% url 'coursehome' courseid=courseid.courseid %}" style="color: #ff5733">Home</a></li>
+
+
+					<li><a href="{% url 'coursecontent' courseid=courseid.courseid %}" style="color: #ff5733">Course</a></li>
+					<li><a href="{% url 'progress' courseid=courseid.courseid %}" style="color: #ff5733">Progress</a></li>
+
+
+					<li><a href="{% url 'requirements' courseid=courseid.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
+					<li><a href="{% url 'schedules' courseid=courseid.courseid %}" style="color: #ff5733">Schedules</a></li>
+
+					{% if request.user.is_staff and request.user.is_superuser %}
+
+					<li>	<a href="{% url 'add_question' courseid=courseid.courseid %}">Add Questions</a></li>
+					{% endif %}
+
+				</ul>
+			</div>
+				<!-- /Main navigation -->
+			</div>
+				</nav>
+			</div>
+
+
+
+
+<div class="container well">
+<h4 id="test_status"></h4>
+<div id="test"></div>
+
+
+
+
+<form method="POST" id="asd"  class="text-center" style="display:none" >{% csrf_token %}
+  <input type="hidden" value="{{ user.username }}" name="user">
+  <input type="hidden" value="{{ courseid.courseid }}" name="cid">
+  <input type="hidden"  id="myText" value="12" name="correct">
+  <input type="hidden" value="{{ context.count }}" name="total">
+  <input class="btn btn-primary" type="submit" value="View Result" >
+</form>
+</div>
+{% include "footer.html" %}
+
+
 <script>
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
 
@@ -81,69 +149,12 @@ window.addEventListener("load", renderQuestion, false);
 
 </script>
 
-</head>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
 
 
-
-<body>
-  {% include "header.html" %}
-
-
-	<div id="blog" class="section cm-padding" >
-				<nav id="nav" class="nav-transparent well">
-
-			<div class="container">
-
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
-
-	<img src="{% static 'img/col.png' %}" height="30" width="30">
-					</button>
-				</div>
-<div id="myNavbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-left">
-
-
-					<li><a href="{% url 'coursehome' courseid=courseid.courseid %}" style="color: #ff5733">Home</a></li>
-
-
-					<li><a href="{% url 'coursecontent' courseid=courseid.courseid %}" style="color: #ff5733">Course</a></li>
-					<li><a href="{% url 'progress' courseid=courseid.courseid %}" style="color: #ff5733">Progress</a></li>
-
-
-					<li><a href="{% url 'requirements' courseid=courseid.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
-					<li><a href="{% url 'schedules' courseid=courseid.courseid %}" style="color: #ff5733">Schedules</a></li>
-
-					{% if request.user.is_staff and request.user.is_superuser %}
-
-					<li>	<a href="{% url 'add_question' courseid=courseid.courseid %}">Add Questions</a></li>
-					{% endif %}
-
-				</ul>
-			</div>
-				<!-- /Main navigation -->
-			</div>
-				</nav>
-			</div>
-
-
-
-
-<div class="container well">
-<h4 id="test_status"></h4>
-<div id="test"></div>
-
-
-
-
-<form method="POST" id="asd"  class="text-center" style="display:none" >{% csrf_token %}
-  <input type="hidden" value="{{ user.username }}" name="user">
-  <input type="hidden" value="{{ courseid.courseid }}" name="cid">
-  <input type="hidden"  id="myText" value="12" name="correct">
-  <input type="hidden" value="{{ context.count }}" name="total">
-  <input class="btn btn-primary" type="submit" value="View Result" >
-</form>
-</div>
-{% include "footer.html" %}
 </body>
 </html>

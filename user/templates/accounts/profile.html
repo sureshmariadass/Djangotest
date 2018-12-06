@@ -26,16 +26,24 @@
   <!-- Header -->
   {% include "header.html" %}
   <!-- /Header -->
+
+
+  <!-- header wrapper -->
+	<div class="header-wrapper sm-padding bg-grey">
+		<div class="container">
+<h2>Profile</h2>
+		</div>
+	</div>
+	<!-- /header wrapper -->
   <!-- Blog -->
-  <hr>
   <div id="blog" class="section sm-padding">
 
 
 {% block body %}
 <div class="container well">
 
-    <h4>Profile</h4>
-<hr style="height:1px;background-color: #595e66;">
+    
+
     <div class="container" style="color:black">
       <ul>
     <li>Username: {{ user }}</li>

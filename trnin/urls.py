@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.urls import path,include
 from user import views
 import course.views
-
+from messenger import views as msg
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,14 +26,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html'), name='Home'),
+    path('', views.index, name='Home'),
     path('register',views.register,name='register'),
     path('',include('django.contrib.auth.urls')),
     path('index',views.index),
     path('profile/',views.view_profile,name='profile'),
     path('profile/password/',views.change_password,name='change_password'),
     path('profile/edit/',views.edit_profile,name='edit_profile'),
-    url(r'^contact/$',course.views.contact, name='contact'),
+    url(r'^contact/$',msg.messages, name='contact'),
     path('blog/',course.views.blog,name='blog'),
     url(r'^(?P<id>\d+)/$',course.views.coursedesc,name='detail'),
     url(r'^coursehome/(?P<courseid>[-\w]+)/$',course.views.coursehome,name='coursehome'),
@@ -46,6 +46,8 @@ urlpatterns = [
     url(r'^exam/(?P<courseid>[-\w]+)/$',course.views.exam,name='exam'),
     url(r'^progress/(?P<courseid>[-\w]+)/$',course.views.progress,name='progress'),
     url(r'^add_question/(?P<courseid>[-\w]+)/$',course.views.add_question,name='add_question'),
+    url(r'^messages_list/$',msg.messages_list,name='msg_list'),
+    url(r'^message/(?P<id>\d+)/$',msg.get_message,name='msg'),
 
 
     # url(r'^service/$',course.views.service, name='service'),

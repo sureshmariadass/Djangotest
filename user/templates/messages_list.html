@@ -1,0 +1,86 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="{% static 'img/fav.png' %}" type="image/gif" sizes="16x16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Messages List</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<script src="{% static 'js/angular.js' %}"></script>
+    <script src="{% static 'js/angular-route.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</head>
+<body>
+	<!-- Header -->
+	{% include "header.html" %}
+  <hr>
+	<!-- /Header -->
+	<!-- Blog -->
+<div class="container well">
+
+<h3 class="text-center">Messages</h3>
+
+
+<table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Mail ID</th>
+        <th>Sent Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for con in contact %}
+          <tr>
+            <td><a href="{% url 'msg' id=con.id %}"><span class="glyphicon glyphicon-envelope btn btn-lg"></span>{{con.name}}</a></td>
+            <td>{{con.subject}}</td>
+            <td>{{con.email}}</td>
+            <td>{{con.sent_date}}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+
+
+
+
+  </div>
+
+
+
+
+
+  <!--blog-->
+			<!-- /Row -->
+	<!-- Footer -->
+{% include "footer.html" %}
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

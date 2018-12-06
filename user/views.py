@@ -3,11 +3,38 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm,PasswordC
 from django.contrib.auth import authenticate
 from user.forms import EditProfileForm,RegistrationForm
 from django.contrib.auth import update_session_auth_hash
+from course.models import CourseDetails
+from messenger.models import Contact
+from django.contrib import messages as info
 # Create your views here.
 def blog(request):
      return render(request,'blog-single.html')
 def index(request):
-     return render(request,'index.html')
+    blogs=CourseDetails.objects.all()
+    blogs1=blogs.filter(category__category__icontains="Trainocate")
+    blogs2=blogs.filter(category__category__icontains="Cisco")
+    blogs3=blogs.filter(category__category__icontains="Microsoft")
+    if request.method == 'POST':
+
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+
+        c=Contact()
+        c.name=name
+        c.email=email
+        c.subject=subject
+        c.messages=message
+        c.save()
+
+        info.success(request, 'Message sent successfully.')
+    context={
+    'blogs1':blogs1,
+    'blogs2':blogs2,
+    'blogs3':blogs3
+    }
+    return render(request,'index.html',context)
 def login(request):
      return render(request,'login.html')
 def register(request):

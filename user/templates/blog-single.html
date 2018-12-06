@@ -54,11 +54,12 @@
 				<!-- Main -->
 				<main id="main" class="col-md-9">
 					<h3 class="title">Viewing {{ blogs.count }} Courses</h3>
+
+
 							<div class="row1">
 
 {% for temp in blogs %}
   <div class="column">
-
     <div class="content">
 
       <a href="{% url 'detail' id=temp.id %}"><img src="{{temp.image.url}}" alt="{{temp.name}}" style="width:100%; height: 100%"></a>
@@ -73,6 +74,7 @@
   </div>
 
 {% endfor %}
+
 			<!-- comment -->
 							<div class="media">
 								<div class="media-left">

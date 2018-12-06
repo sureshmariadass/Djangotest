@@ -28,23 +28,42 @@
 	{% include "header.html" %}
 	<!-- /Header -->
 
+	<!-- header wrapper -->
+	<div class="header-wrapper sm-padding bg-grey">
+		<div class="container">
+<h2>SIGN UP</h2>
+		</div>
+	</div>
+	<!-- /header wrapper -->
+
+
+
 	<!-- Blog -->
 {% block content %}
-<hr>
+
 <div class="container" style="width: 50%;">
-  <center><h2>Sign up</h2></center>
+<br><br>
   <form method="post">
     {% csrf_token %}
-		{{form.as_p}}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        <!-- {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small> -->
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
     <button type="submit">Sign up</button>
     Already a User <a href="{% url 'login' %}">Click here!</a> for login
   </form>
 </div>
 
 {% endblock %}
-<br>
-<br><br><br><br>
-
+<br><br><br>
 {% include "footer.html" %}
 	<div id="preloader">
 		<div class="preloader">

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://one.trainocate.com/ -->
+<html lang="en"><!--<![endif]--><head dir="ltr"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./test_files/bootstrap.min.css">
+  <script type="text/javascript" async="" src="./test_files/tracking.js.download"></script><script src="./test_files/jquery.min.js.download"></script>
+  <script src="./test_files/bootstrap.min.js.download"></script>
+
+
+  
+      <title>
+        | Trainocate
+      </title>
+  
+
+      <script type="text/javascript">
+        /* immediately break out of an iframe if coming from the marketing website */
+        (function(window) {
+          if (window.location !== window.top.location) {
+            window.top.location = window.location;
+          }
+        })(this);
+      </script>
+
+  
+
+  <script type="text/javascript" src="./test_files/djangojs.b28203373cc1.js.download"></script>
+
+  <link rel="icon" type="image/x-icon" href="https://one.trainocate.com/static/images/favicon.ico">
+
+  
+  
+
+    <link href="./test_files/lms-style-vendor.4ccaa7f84216.css" rel="stylesheet" type="text/css">
+
+
+
+  
+  
+
+    <link href="./test_files/lms-main-v1.9b6c2a7f9e3b.css" rel="stylesheet" type="text/css">
+
+
+
+
+      
+    <script type="text/javascript" src="./test_files/lms-main_vendor.a04b73033169.js.download" charset="utf-8"></script>
+
+
+      
+    <script type="text/javascript" src="./test_files/lms-application.51c0ded4a189.js.download" charset="utf-8"></script>
+
+
+
+  <script>
+    window.baseUrl = "/static/";
+    (function (require) {
+      require.config({
+          baseUrl: window.baseUrl
+      });
+    }).call(this, require || RequireJS.require);
+  </script>
+  <script type="text/javascript" src="./test_files/require-config.cd72e66c1a3e.js.download"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.d644b0d5a0f4',
+'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.22ad04bb0497',
+'js/courseware/course_home_events': 'js/courseware/course_home_events.efe56112dd91',
+'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+'moment': 'common/js/vendor/moment-with-locales.e7cec2dc4ef8',
+'moment-timezone': 'common/js/vendor/moment-timezone-with-data.60142e6c4416',
+'js/student_account/logistration_factory': 'js/student_account/logistration_factory.541254eb1ae0',
+'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.eb8701884901',
+'js/dateutil_factory': 'js/dateutil_factory.6656d67f0a35',
+'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+'js/bookmarks/views/bookmark_button': 'js/bookmarks/views/bookmark_button.bca63457af5c',
+'js/views/message_banner': 'js/views/message_banner.099aec538f98',
+'js/student_profile/views/learner_profile_factory': 'js/student_profile/views/learner_profile_factory.7627f040d863'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+
+    
+    <script type="text/javascript" src="./test_files/lms-modules.515609b002b0.js.download" charset="utf-8"></script>
+
+
+
+  
+<link rel="stylesheet" href="./test_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  
+
+  
+
+
+  
+
+
+<!-- dummy Segment -->
+<script type="text/javascript">
+  var analytics = {
+    track: function() { return; },
+    trackLink: function() { return; },
+    pageview: function() { return; },
+    page: function() { return; }
+  };
+</script>
+<!-- end dummy Segment -->
+
+
+  <meta name="path_prefix" content="">
+  <meta name="google-site-verification" content="_mipQ4AtZQDNmbtOkwehQDOgCxUUV2fb_C0b6wbiRHY">
+
+
+
+<style>
+.dashboard .my-courses .course .details .enter-course:focus
+{
+background-color:#ff5733;
+}
+.row
+{
+margin-left: 1px;
+margin-right: 1px;
+}
+@media only screen and (max-width: 700px) {
+.col-xs-8 {
+    width: 100%;
+}
+}
+@media only screen and (max-width: 420px) {
+.iframe {
+    width: 100%;
+}
+}
+
+a:visited
+{
+color:#ff5733;
+}
+.course-info header.course-profile
+{
+background:url(/static/starter-theme/images/office.603509051dbb.jpg);
+}
+.course-info header.course-profile .intro-inner-wrapper
+{
+margin-top: -137px;
+width: 700px;
+height: 257px;
+}
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta a.register
+{
+box-shadow: inset 0 1px 0 0 #ff5733;
+background-color: #ff5733;
+border: 1px solid #ff5733;
+background-image: linear-gradient(to bottom,#f7691f 0%,#bf3700 50%,#a11e00 50%,#a82300 100%);
+border-bottom: 1px solid #ff5733;
+}
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta a.register:hover:not(:disabled)
+{
+background-color: #ff5733;
+background-image: linear-gradient(to bottom,#f7691f 0%,#bf3700 50%,#a11e00 50%,#a82300 100%);
+}
+.login-register .action-primary
+{
+box-shadow: 0 2px 1px 0 #ff5733;
+background: #ff5730;
+}
+.login-register .nav-btn
+{
+border: 1px solid #ff5730;
+color: #ff5730;
+}
+.login-register .action-primary:hover
+{
+background: #ff5733;
+}
+.login-register .nav-btn:hover
+{
+background: #ff5733;
+box-shadow: 0 2px 1px 0 #ff5733;
+}
+.courses-container .courses .course .course-image .cover-image .learn-more
+{
+border-color: #ff5733;
+background: #ff5733;
+}
+.courses-container .courses .course .course-info .course-title
+{
+color : #ff5733;
+}
+.courses-container .courses .course
+{
+border: 1px solid #ff5733;
+border-bottom: 3px solid #ff5733;
+}
+.highlighted-courses .courses .course:hover
+{
+background: whitesmoke;
+border-color: #ff5733;
+box-shadow: 0 1px 4px 0 #ff5733;
+}
+.find-courses .courses .course:hover
+{
+background: whitesmoke;
+border-color: #ff5733;
+box-shadow: 0 1px 4px 0 #ff5733;
+}
+
+body.view-in-course .container
+{
+padding: 38px 2%;
+
+}
+.progress
+{
+overflow: visible;
+}
+
+a:hover, a:focus, a:visited:hover, a:visited:focus
+{
+color: #ff5733;
+}
+a, a:visited
+{
+
+color: #ff5733;
+}
+button:hover:not(:disabled)
+{
+background-image: linear-gradient(to bottom,#ff5733 0%, #ff5733 50%, #ff5733 50%, #ff5733 100%);
+}
+.header-global.slim .wrapper-header .list-inline.nav-global
+{
+display:none;
+}
+.tabs .tab a
+{
+color:#5e5e5e;
+}
+.layout-1t2t.layout
+{
+max-width:100.125rem;
+}
+
+.content-wrapper .page-content
+{
+padding:0px
+}
+.is-visible
+{
+display:block;
+}
+.header-global.slim .wrapper-header .course-header
+{
+font-size:13px;
+}
+.dropdown-menu-container .menu-title {
+font-size:13px;
+}
+.wrapper-footer footer#footer-openedx .colophon .nav-colophon li a {
+  color: #ff5730;
+}
+.wrapper-footer footer#footer-openedx .colophon .nav-colophon li a:hover
+{
+color:#ff5730;
+border-bottom: none;
+}
+.wrapper-footer {
+padding: 12px 11px 2px 0px;
+}
+.find-courses .discovery-submit {
+ border: 2px solid #c8c8c8;
+ background: #ff5730;
+}
+.find-courses .discovery-submit:hover
+{
+background: #ff5730;
+}
+.find-courses .discovery-submit:focus
+{
+background: #ff5730;
+}
+ button:focus:not(:disabled), .button:focus:not(:disabled) 
+{
+    box-shadow: inset 0 0 20px 0 #ff5730;
+}
+.dashboard .my-courses .course .details .enter-course:hover {
+    background-color: #ff5733;
+}
+.search-bar .search-button {
+    background: #ff5733;
+}
+.search-bar .search-button:hover, .search-bar .search-button:hover:hover {
+    background: #ff5733;
+}
+
+
+
+</style>
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 9729990;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/static/js/dateutil_factory.6656d67f0a35.js?raw" src="./test_files/dateutil_factory.6656d67f0a35.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="moment" src="./test_files/moment-with-locales.e7cec2dc4ef8.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="draggabilly" src="./test_files/draggabilly.26caba6f7187.js.download"></script></head>
+
+<body class="ltr  lang_en">
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" style="border-top:4px solid #ff5733;padding-bottom:20px;" dir="ltr">
+    <a class="nav-skip" href="https://one.trainocate.com/#main">Skip to main content</a>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.header-global .nav-global { margin-top: 0px !important;}
+main#main .outer-wrapper .title { width: 100% !important;}
+.header-global .user{margin-top: 8px;}
+main#main .outer-wrapper .title .course-search label:first-child{width:95%}
+.login-register .submission-error{margin-top: 20px;}
+@media(max-width:830px){
+    .header-global ol.authenticated{ padding-right: 150px; }
+  .header-global .user,.doc-link{ padding-top:18px; }
+  .main-profile { padding-top:75px; }
+}
+@media(max-width:797px){
+  .header-global h1.logo { margin: -5px 15px 0 0;}
+}
+@media(max-width:710px){
+   .header-global ol.authenticated{ padding-right:0px;}
+}
+@media(max-width:700px){
+    ol.nav-global, ol.nav-courseware{ padding-top:8px; }
+   .header-global ol.authenticated{ padding-top:0px; }
+}
+@media(max-width:695px){
+.header-global ol.authenticated{ padding-top:35px;}
+.nav-global li a {padding: 0px !important ;}
+.nav-global li a {padding-left: 15px !important ;}
+.nav-courseware li a {padding: 0px !important ;}
+.nav-courseware li {margin-top: 29px !important ;}
+.header-global .nav-global li {margin : 0px !important;}
+.dashboard-search-bar label{    font-size: 10px; }
+}
+@media(max-width:560px){
+ .nav-global li a {padding:0px !important; }
+ .nav-global li a {padding-right:15px !important;}
+ .authenticated li a{padding-right:0px !important;}
+ .header-global ol.authenticated{ padding-top:50px; padding-right:55px; } 
+ .header-global ol.authenticated .nav-global-01{ padding-right:10px; }
+}
+@media(max-width:550px){
+    ol.nav-global{ padding-right:70px; }
+    .main-profile{padding-top:150px; }
+}
+@media(max-width:540px){
+ .header-global ol.authenticated{ padding-right:120px; }
+ .account-settings-container .wrapper-header .header-title { padding-top:95px; font-size:20px;display:inline-block; }
+ .account-settings-container .wrapper-header { height:170px; }
+ .wrapper-account-settings .wrapper-header .account-nav{ display: inline-flex; }
+ .main-profile{padding-top:150px; }
+}
+@media(max-width:500px){
+ ol.nav-global{ padding-right:0px; } 
+ #dashboard-main{ display: flex; flex-direction: column;  padding-top:0px !important ;}
+ #dashboard-main #my-courses{ order:2 }
+ #dashboard-main  #dashboard-search-bar{order:1;width:100% !important;padding-right: 10px;}
+}
+
+@media(max-width:470px){
+ .account-settings-container .wrapper-header .header-title { padding-top:10px; font-size:20px;display:inline-block; }
+.wrapper-profile-sections .u-field-username span.u-field-value {   font-size:20px !important; }
+}
+@media(max-width:425px){
+.home>header .outer-wrapper { padding-left: 31px; padding-right:31px; }
+.home>header .title .course-search .search-input { font-size:small;}
+}
+@media(max-width:540px){
+	.colophon a img  {     width: 185px; }
+ #footer-openedx{ display: inline-flex; }
+ .footer-about-openedx{margin-top: 36px;}
+ .footer-about-openedx a img {width:75px; }
+
+}
+@media(max-width:360px){
+        .colophon a img  {     width: 142px; }
+ .footer-about-openedx a img {width:58px; }
+
+}
+@media(max-width:360px){
+ .header-global ol.authenticated{ padding-right:0px; }
+}
+@media(max-width:420px){
+ a.register{ width:auto !important }
+}
+
+.wrapper-profile .wrapper-profile-field-account-privacy div.u-field-account_privacy{min-width: min-content !important; }
+.wrapper-profile .wrapper-profile-sections {     min-width: min-content !important;  }
+.wrapper-profile-sections .u-field-username span.u-field-value {     min-width: min-content !important; display: inline !important; font-size:20px; }
+.about-container,header{ min-width: min-content; }
+.sharing-message,.intro-inner-wrapper{ width: auto !important; min-width:auto !important; }
+
+@media(max-width:530px){
+ .social-sharing a .icon{ font-size:small !important; }
+ .social-sharing a.share{ width:auto !important;  }
+ .about-container .details .inner-wrapper h2{ font-size:22px !important;  }
+}
+
+</style>
+  <header style="height:95px;" id="global-navigation" class="header-global ">
+    <nav class="wrapper-header" aria-label="Global">
+    <h1 class="logo">
+      <a href="https://one.trainocate.com/">
+        
+        
+            <img style="margin-top:30px;width:274px;height:39px;" class="" src="./test_files/logo1.8eaa837d4dd6.svg" alt="Trainocate Home Page">
+        
+      </a>
+    </h1>
+
+
+      <ol class="left list-inline nav-global">
+        
+        
+
+        
+              <li class="" style="text-transform:capitalize;">
+                <a class="capitalize" style="color:#ff5730;padding: 10px 18px 5px 14px; margin-top:29px; margin-bottom:8px; text-align: center;border-radius:25px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px;" href="https://one.trainocate.com/courses">Explore Courses</a>
+              </li>
+                <a class="capitalize" style="color:#ff5730;padding: 10px 18px 5px 14px; display: none;  margin-top:29px; margin-bottom:-22px; text-align: center;border-radius:25px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px;" href="https://one.trainocate.com/register">Register</a>
+              
+        
+      </ol>
+
+      <ol class="right nav-courseware list-inline">
+        
+          <li class="" style="text-transform:capitalize; margin-top:39px; color:#ff5730;">
+
+<a class="" style="color:#ff5730; font-weight:bold; padding: 4px 0px 5px 18px; text-align: center;  font-family:Verdana, Arial, Helvetica, sans-serif;font-size:14px; text-decoration: none;" href="https://one.trainocate.com/register">Register /</a>
+
+ <a class="" style="color:#ff5730; font-weight:bold; padding: 4px 18px 5px 0px; text-align: center;  font-family:Verdana, Arial, Helvetica, sans-serif;font-size:14px; text-decoration: none;" href="https://one.trainocate.com/login">Sign in</a>
+
+<a class="" style="color:#ff5730; font-weight:bold; padding: 4px 18px 5px 18px; text-align: center;  font-family:Verdana, Arial, Helvetica, sans-serif;font-size:14px;" href="https://one.trainocate.com/contact">Contact Us</a>
+
+          </li>
+        
+      </ol>
+    </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+    <div class="content-wrapper" id="content">
+      
+
+
+
+
+<main id="main" aria-label="Content" tabindex="-1">
+    <section class="home">
+      <header style="min-height:350px; height:350;">
+        <div class="outer-wrapper" style="margin-top:-50px; opacity:0.7; margin-bottom:-102px;">
+          <div class="title" style="background:#fbfbfb;box-sizing:border-box;vertical-align:top;margin-bottom:-13px;margin-top:-29px;">
+            <div class="heading-group">
+                   <h1 style="color:#2e2e2e; font-family:sans-serif;">Welcome to Trainocate, E-Learning!</h1>
+                  <h4 style="font-family:sans-serif;">Trainocate Offers Quality Learning Experience in IT and Best Practice Training</h4>
+            </div>
+              <div class="course-search">
+                <form method="get" action="https://one.trainocate.com/courses">
+                  <label><span class="sr">Search for a course</span>
+                    <input style="background-color:lightorange; border-color:#ff5733;" class="search-input" name="search_query" type="text" placeholder="Search for a course">
+                  </label>
+                  <button class="search-button" type="submit" style="border-color:#ff5733; background-color:#ff5733;">
+                    <span class="icon fa fa-search" aria-hidden="true"></span><span class="sr">Search</span>
+                  </button>
+                </form>
+              </div>
+
+          </div>
+
+        </div>
+
+      </header>
+      <br>
+      <br>
+      
+
+ <section class="home-adv">
+
+    <div class="container-mb" style="margin-left: 189px;">
+    <div class="row">
+    <div class="col-sm-12">
+<h1 style="font-family:sans-serif; color:black;" class="title">Do you want to Learn to make a <b style="font-family:serif; color:#ff5730;">DIFFERENCE?</b> </h1>
+<br>
+</div>
+</div>
+<br>
+
+<div class="row">
+	<div class="col-sm-1 col-xs-1"></div>
+    <div class="col-sm-5 col-xs-10">
+      <h1 style="color:#ff5730; font-family:serif; text-align:left;">An Introduction</h1>
+      <br>
+      <p style="font-family:sans-serif; font-size:17px; color:black; line-height:24px; ">Trainocate is the leading learning solution provider with its presence in Singapore, Malaysia, Thailand, Indonesia, India, Vietnam, China, Philippines, Hong Kong, Japan &amp; US. Specialized in big data analytics, cloud computing, networking, programming, operating systems, cybersecurity and telephony. Our IT Courses are focused on Cisco, NetApp, IBM, Citrix, Microsoft, Red Hat, Trend Micro and VMware and many other leading vendors.</p>
+	  <p style="font-family:sans-serif; font-size:17px; color:black; line-height:24px;">Offering a vast choice of delivery methods to its customers such as classroom, onsite training, self-paced, virtual classroom fit and virtual classroom live via our video-telepresence with best in class experience.</p>
+    </div>
+<div class="col-xs-1"></div>
+	<div class="clearfix-mb visible-xs-block"></div>
+	<div class="col-xs-2"></div>
+    <center><div class="col-sm-5 col-xs-8">
+      <br>
+	  <br>
+     <center><iframe width="400" height="300" src="./test_files/zbm-w2mwR-o.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></center>
+
+      
+    </div></center>
+	<div class="col-sm-1 col-xs-2"></div>
+
+
+    </div><!-- end row -->
+    </div><!-- end container-mb -->
+  </section>
+
+
+
+      
+
+
+
+<section class="courses-container">
+  <section class="highlighted-courses">
+
+      <section class="courses">
+        <h1 style="width:25%; color:#ff5730; text-align:left; font-family:serif;">Microsoft</h1>
+ 
+
+        <hr style="width: -webkit-fill-available;">
+        <ul class="courses-listing">
+
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Microsoft+AZURE202x+2018_T1" role="region" aria-label="Microsoft Azure Virtual Machines">
+  <a href="https://one.trainocate.com/courses/course-v1:Microsoft+AZURE202x+2018_T1/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Microsoft+AZURE202x+2018_T1+type@asset+block@course_image.png" alt="Microsoft Azure Virtual Machines AZURE202x">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Microsoft</span>
+        <span style="color:black;" class="course-code">AZURE202x</span>
+        <span style="color:#ff5733;" class="course-title">Microsoft Azure Virtual Machines</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Microsoft</li>
+        <li>AZURE202x</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000">Jan 1, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Microsoft+AZURE203x+2018_T1" role="region" aria-label="Microsoft Azure Virtual Networks">
+  <a href="https://one.trainocate.com/courses/course-v1:Microsoft+AZURE203x+2018_T1/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Microsoft+AZURE203x+2018_T1+type@asset+block@course_image.png" alt="Microsoft Azure Virtual Networks Azure203x">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Microsoft</span>
+        <span style="color:black;" class="course-code">Azure203x</span>
+        <span style="color:#ff5733;" class="course-title">Microsoft Azure Virtual Networks</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Microsoft</li>
+        <li>Azure203x</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000">Jan 1, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Microsoft+AZURE204x+2018_T1" role="region" aria-label="Microsoft Azure Identity">
+  <a href="https://one.trainocate.com/courses/course-v1:Microsoft+AZURE204x+2018_T1/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Microsoft+AZURE204x+2018_T1+type@asset+block@course_image.png" alt="Microsoft Azure Identity AZURE204x">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Microsoft</span>
+        <span style="color:black;" class="course-code">AZURE204x</span>
+        <span style="color:#ff5733;" class="course-title">Microsoft Azure Identity</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Microsoft</li>
+        <li>AZURE204x</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000">Jan 1, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Microsoft+AZURE205x+2018_T1" role="region" aria-label="Microsoft Azure Storage">
+  <a href="https://one.trainocate.com/courses/course-v1:Microsoft+AZURE205x+2018_T1/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Microsoft+AZURE205x+2018_T1+type@asset+block@course_image.png" alt="Microsoft Azure Storage AZURE205x">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Microsoft</span>
+        <span style="color:black;" class="course-code">AZURE205x</span>
+        <span style="color:#ff5733;" class="course-title">Microsoft Azure Storage</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Microsoft</li>
+        <li>AZURE205x</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000">Jan 1, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+        </ul>
+        <br>
+      </section>
+      <div class="courses-more">
+        
+	<button class="btn themBtnStyle btnPos pull-right" id="btnMKT" style="background-color: #ff5733;border-color: #ff5733; margin-bottom: 22px; background-image: -webkit-linear-gradient(top, #ff5733 0%, #ff5733 50%, #ff5733 50%, #ff5733 100%); color:white;" onclick="window.location.href=&#39;https://one.trainocate.com/courses&#39;">View all courses</button>
+      </div>
+      <section class="courses">
+        <h1 style="width:25%; color:#ff5730; text-align:left; font-family:serif;">Trainocate</h1>
+ 
+
+        <hr style="width: -webkit-fill-available;">
+        <ul class="courses-listing">
+
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Trainocate+DM01+2017" role="region" aria-label="Identity Services Engine Fundamentals">
+  <a href="https://one.trainocate.com/courses/course-v1:Trainocate+DM01+2017/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Trainocate+DM01+2017+type@asset+block@8477734222_258161ffbe_1_.jpg" alt="Identity Services Engine Fundamentals DM01">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Trainocate</span>
+        <span style="color:black;" class="course-code">DM01</span>
+        <span style="color:#ff5733;" class="course-title">Identity Services Engine Fundamentals</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Trainocate</li>
+        <li>DM01</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-01T00:00:00+0000">Jan 1, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+
+          <li class="courses-listing-item">
+              
+
+
+
+<article class="course" style="border:1px solid #ff5733; border-bottom:3px solid #ff5733;" id="course-v1:Trainocate+IBMC01+2017_IBMC" role="region" aria-label="IBM Cloud Platform Application Development V2">
+  <a href="https://one.trainocate.com/courses/course-v1:Trainocate+IBMC01+2017_IBMC/about">
+    <header class="course-image">
+      <div class="cover-image">
+        <img src="./test_files/asset-v1_Trainocate+IBMC01+2017_IBMC+type@asset+block@IBM_BLUE_MIX_THuMBNAIL-02.png" alt="IBM Cloud Platform Application Development V2 IBMC01">
+        <div class="learn-more" aria-hidden="true">LEARN MORE</div>
+      </div>
+    </header>
+    <div class="course-info" aria-hidden="true">
+      <h2 class="course-name">
+        <span style="color:black;" class="course-organization">Trainocate</span>
+        <span style="color:black;" class="course-code">IBMC01</span>
+        <span style="color:#ff5733;" class="course-title">IBM Cloud Platform Application Development V2</span>
+      </h2>
+      
+          <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2018-01-03T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 3, 2018</div>
+    </div>
+    <div class="sr">
+      <ul>
+        <li>Trainocate</li>
+        <li>IBMC01</li>
+            <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2018-01-03T00:00:00+0000">Jan 3, 2018</time></li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+  
+  <script type="text/javascript">
+    (function (require) {
+        require(['/static/js/dateutil_factory.6656d67f0a35.js?raw'], function () {
+          require(['js/dateutil_factory'], function (DateUtilFactory) {
+            
+    DateUtilFactory.transform(iterationKey=".localized_datetime");
+
+          });
+        });
+    }).call(this, require || RequireJS.require);
+  </script>
+
+
+          </li>
+        </ul>
+        <br>
+      </section>
+      <div class="courses-more">
+        
+	<button class="btn themBtnStyle btnPos pull-right" id="btnMKT" style="background-color: #ff5733;border-color: #ff5733; margin-bottom: 22px; background-image: -webkit-linear-gradient(top, #ff5733 0%, #ff5733 50%, #ff5733 50%, #ff5733 100%); color:white;" onclick="window.location.href=&#39;https://one.trainocate.com/courses&#39;">View all courses</button>
+      </div>
+  </section>
+</section>
+
+
+
+    </section>
+</main>
+
+
+
+
+
+      
+    </div>
+
+        
+
+
+
+
+<div class="wrapper wrapper-footer">
+  <footer id="footer-openedx" class="grid-container">
+    <div class="colophon">
+      <nav class="nav-colophon" aria-label="About">
+        <ol>
+            <li class="nav-colophon-01">
+              <a id="about" href="https://one.trainocate.com/about">About</a>
+            </li>
+            <li class="nav-colophon-02">
+              <a id="contact" href="https://one.trainocate.com/contact">Contact</a>
+            </li>
+             <li class="nav-colophon-03">
+              <a id="tos" href="https://one.trainocate.com/tos">Terms of Service</a>
+            </li>
+        </ol>
+      </nav>
+
+      <div class="wrapper-logo">
+        <p>
+          <a href="https://one.trainocate.com/">
+            <img alt="organization logo" style="margin-top:-24px; margin-right:70px; margin-left:-6px; width:212px;" src="./test_files/logo1.8eaa837d4dd6.svg">
+          </a>
+        </p>
+      </div>
+
+      <p class="copyright">© Trainocate.  All rights reserved except where noted.  EdX, Open edX and the edX and Open EdX logos are registered trademarks or trademarks of edX Inc.</p>
+    </div>
+    <div class="footer-about-openedx">
+      <p>
+        <a href="http://open.edx.org/">
+          <img src="./test_files/edx-openedx-logo-tag.png" alt="Powered by Open edX" width="140">
+        </a>
+      </p>
+    </div>
+  </footer>
+</div>
+
+
+
+  </div>
+
+  
+<script src="./test_files/bootstrap.min.js.download" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+
+
+  
+
+
+
+  <script type="text/javascript" src="./test_files/noreferrer.aa62a3e70ffa.js.download" charset="utf-8"></script>
+  <script type="text/javascript" src="./test_files/navigation.323bf3e1ae16.js.download" charset="utf-8"></script>
+  
+
+
+
+
+
+<!-- Performance beacon for onload times -->
+<div id="reader-feedback" class="sr" aria-live="polite"></div><script src="./test_files/get_dynamic_config.js.download"></script></body></html>

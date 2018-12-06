@@ -26,6 +26,10 @@
 				<li><a href="{% url 'register' %}">Register</a>
 				<li><a href="{% url 'login' %}">Login</a>
 					{% endif %}
+					{% if request.user.is_staff and request.user.is_superuser %}
+
+					<li>	<a href="{% url 'msg_list'%}">Messages</a></li>
+					{% endif %}
 				<li><a href="{% url 'blog' %}">Explore Courses</a></li>
 
 				<ul class="main-nav nav navbar-nav navbar-right">
@@ -33,7 +37,7 @@
 					<ul class="dropdown">
 						<li><a href="{% url 'profile'%}">{{user.username}}</a></li>
 						{% if user.is_authenticated %}
-						
+
 						<li><a href="{% url 'logout' %}">Logout</a></li>
 						{% else %}
 						<li><a href="{% url 'login' %}">Login</a></li>

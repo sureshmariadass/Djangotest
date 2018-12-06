@@ -760,7 +760,7 @@ header {
     color: #868F9B;
 }
 .logo{
-    width: auto;
+    width: 250px;
 }
 
 
@@ -819,7 +819,7 @@ header {
 }
 
 .work>img {
-  width: 100%;
+  width: 96%;
 }
 
 .work .overlay {
@@ -830,6 +830,7 @@ header {
     right: 0px;
     bottom: 0px;
     opacity: 0;
+    height: 300px;
     -webkit-transition: 0.2s opacity;
     transition: 0.2s opacity;
     -webkit-transition-delay: 0.2s;

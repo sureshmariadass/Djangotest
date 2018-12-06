@@ -27,6 +27,19 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+<style>
+
+#about-slider
+img{
+	height: 350px;
+	padding-top: 107px
+}
+
+
+</style>
+
+
+
 	<!-----------Chat settings---------------->
 	<script type="text/javascript">function add_chatinline(){var hccid=83539622;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
 add_chatinline(); </script>
@@ -74,7 +87,7 @@ add_chatinline(); </script>
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="{% url 'blog'%}">Explore Courses</a></li>
 					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
+					<li><a href="#about">Know Us</a></li>
 					<li><a href="#course">Our Courses</a></li>
 					<li><a href="#why_us">Why Us</a></li>
 					<li><a href="#contact">Contact Us</a></li>
@@ -130,8 +143,8 @@ add_chatinline(); </script>
 			<!-- Row -->
 			<div class="row">
 
-				<!-- Section header -->
 				<div class="section-header text-center">
+					<!-- Section header -->
 					<h2 class="title">Welcome to Trainocate</h2>
 
 				</div>
@@ -194,43 +207,60 @@ add_chatinline(); </script>
 				</div>
 				<!-- /Section header -->
 				<!-- Work -->
-				<div class="col-md-4 col-xs-6 work" style="height: 390px;">
-					<img class="img-responsive" src="{% static './img/trai.png' %}" alt="" height: 370px >
-
+				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
+					 <img class="img-responsive" src="{% static './img/logo.png' %}" alt="" >
+					 <div class="container"></br>
+					<p style="font-size:20px;font-style: italic;"> Learning is a TREASURE that will follow its owner everywhere</p><br>
+					<div class="container text-primary bg-info" style="width:50%" >
+					View {{blogs1.count}} Courses
+				</div></div>
 					<div class="overlay"></div>
 					<div class="work-content">
 						<span>Trainocate</span>
 						<h3>Our Customized Courses</h3>
 						<div class="work-link">
-							<a href="/blog/?trai=Trainocate"><i class="fa fa-external-link"></i></a>
+							<a href="/blog/?filter=Trainocate"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
 				</div>
 				<!-- /Work -->
 
 				<!-- Work -->
-				<div class="col-md-4 col-xs-6 work" style="height: 390px;" >
-					<img class="img-responsive" src="{% static './img/cisc1.png' %}" alt="">
+				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;" >
+					<center><img class="img-responsive" src="{% static './img/c1.png' %}" alt="" style="height:57px;width:150px"></center><br>
+					<div class="container"><p style="font-size:20px;font-style: italic;">Driving up the value of the advertising is a big commitment for Cisco's.
+
+</p>
+<div class="container text-primary bg-info" style="width:50%">
+	View {{blogs2.count}} Courses
+</div></div>
 
 					<div class="overlay"></div>
 					<div class="work-content">
 						<span>Cisco</span>
-						<h3>80 Verified Courses</h3>
+						<h3>Certified Courses</h3>
 						<div class="work-link">
-							<a href="/blog/?mic=Microsoft"><i class="fa fa-external-link"></i></a>
+							<a href="/blog/?filter=Microsoft"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
 				</div>
 				<!-- /Work -->
 				<!-- Work -->
-				<div class="col-md-4 col-xs-6 work" style="height: 390px;">
-					<img class="img-responsive" src="{% static './img/mic.png' %}" alt=""  >
+				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
+					<img class="img-responsive" src="{% static './img/mst.png' %}" alt="" style="height:56px" >
+					<div class="container">
+<br>
+					<p style="font-size:20px;font-style: italic;">Microsoft is not about greed. It's about innovation and fairness.</P><br>
+						<div class="container text-primary bg-info" style="width:50%;" >
+							View {{blogs3.count}} Courses
+						</div>
+					</div>
 					<div class="overlay"></div>
 					<div class="work-content">
 						<span>Microsoft</span>
-						<h3>50 Verified Courses</h3>
+						<h3>Certified Courses</h3>
 						<div class="work-link">
-							<a href="/blog/?cis=Cisco"><i class="fa fa-external-link"></i></a>
+							<a href="/blog/?filter=Cisco"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
 				</div>
@@ -241,26 +271,11 @@ add_chatinline(); </script>
 		<!-- /Container -->
 	</div>
 	<!-- /Portfolio -->
-	<!-- Service -->
-	<div id="service" class="section md-padding">
-		<!-- Container -->
-		<div class="container">
-			<!-- Row -->
-			<div class="row">
-<!-- /service -->
 
-			</div>
-			<!-- /Row -->
-
-		</div>
-		<!-- /Container -->
-
-	</div>
-	<!-- /Service -->
 
 
 	<!-- Why Choose Us -->
-	<div id="why_us" class="section md-padding bg-grey">
+	<div id="why_us" class="section md-padding">
 
 		<!-- Container -->
 		<div class="container">
@@ -311,7 +326,7 @@ add_chatinline(); </script>
 	<!-- /Why Choose Us -->
 
 	<!-- Contact -->
-	<div id="contact" class="section md-padding">
+	<div id="contact" class="section md-padding bg-grey">
 
 		<!-- Container -->
 		<div class="container">
@@ -340,8 +355,7 @@ add_chatinline(); </script>
 					<div class="contact">
 						<i class="fa fa-envelope"></i>
 						<h3>Email</h3>
-						<a href="mailto:india@trainocate.com?Subject=Hello%20again" target="_top">Send Mail</a>
-						<p>india@trainocate.com</p>
+						<a href="mailto:india@trainocate.com?Subject=Hello%20again" target="_top">india@trainocate.com</a>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -358,12 +372,25 @@ add_chatinline(); </script>
 
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form"  action="contact.php" method="POST">
-						<input type="text" class="input" placeholder="Name" name="c_name">
-						<input type="email" class="input" placeholder="Email" name="c_mail">
-						<input type="text" class="input" placeholder="Subject" name="c_sub">
-						<textarea class="input" placeholder="Message" name="c_msg"></textarea>
-						<button class="main-btn">Send message</button>
+					<form class="contact-form" method="POST" >
+						{% if user.is_authenticated %}
+						<input type="text" class="input" placeholder="Name" name="name" value="{{user.username}}" readonly>
+						{% else %}
+						<input type="text" class="input" placeholder="Name" name="name" required>
+						{% endif %}
+						<input type="email" class="input" placeholder="Email" name="email" required>
+						<input type="text" class="input" placeholder="Subject" name="subject">
+						<textarea class="input" placeholder="Message" name="message" required></textarea>
+						{% if messages %}
+						<ul class="messages">
+								{% for message in messages %}
+								<li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:green">{{ message }}</li>
+								{% endfor %}
+						</ul>
+						{% endif %}
+						<br><br>
+						<input class="btn btn-primary" type="submit" value="Send Message" >{% csrf_token %}
+						<!-- <input class="btn btn-primary" type="submit" value="Send Message" > -->
 					</form>
 				</div>
 				<!-- /contact form -->

@@ -15,17 +15,19 @@ from .forms import ProgressForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-def blog(request):
-    blogs=CourseDetails.objects.all()
-    cate=Category.objects.all()
 
-    clist= list(cate)
-    c=request.GET.get("c")
-    # blogs2=blogs.filter(category__category__icontains=c)
+def blog(request):
+
     blogs2=CourseDetails.objects.all().values('category').annotate(total=Count('category'))
+    cate=Category.objects.all()
+    clist= list(cate)
     listb = list(blogs2)
     dat=zip(clist, listb)
+
     blogs1=CourseDetails.objects.all()
+    blogs=CourseDetails.objects.all()
+
+
     query=request.GET.get("q")
     if query:
         blogs=blogs.filter(name__icontains=query)
@@ -37,11 +39,9 @@ def blog(request):
 
 
     blogcourse={
+    'blogs':blogs,
     'dat':dat,
     'blogs1':blogs1,
-    'cate':cate,
-
-    'blogs':blogs
     }
 
     return render(request,'blog-single.html',blogcourse)
