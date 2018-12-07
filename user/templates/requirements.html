@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
@@ -31,14 +31,14 @@
 	<!-- Header -->
 {% include "header.html" %}
 	<!-- /Header -->
-	<!-- Blog -->
+	<!-- Requirements -->
 	<div id="blog" class="section cm-padding" >
-				<nav id="nav" class="nav-transparent well">
+		<nav id="nav" class="nav-transparent well">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
 
-	<img src="{% static 'img/col.png' %}" height="30" width="30">
+						<img src="{% static 'img/col.png' %}" height="30" width="30">
 					</button>
 				</div>
 				<div id="myNavbar" class="collapse navbar-collapse">
@@ -58,36 +58,36 @@
 					<li><a href="{% url 'schedules' courseid=home.courseid %}" style="color: #ff5733">Schedules</a></li>
 					{%endfor%}
 				</ul>
-			</div>
+				</div>
 				<!-- /Main navigation -->
 			</div>
-				</nav>
+		</nav>
 
-			</div>
+	</div>
 			<!--/blog--->
 		<div class="container">
 
 
-<div class="col-md-12 well">
-	<div class="container">
-								{% for home in cohome %}
-							<p>	This course has been created for beginners who want to gain a fundamental knowledge about {{home.name}}
-								<br>
-								<br>
+			<div class="col-md-12 well">
+				<div class="container">
+					{% for home in cohome %}
+					<p>	This course has been created for beginners who want to gain a fundamental knowledge about {{home.name}}
+					<br>
+					<br>
 
-              {{home.course_requirements}}
-</p>
-{%endfor%}
-</div>
-</div>
+          {{home.course_requirements}}
+					</p>
+					{%endfor%}
+				</div>
+			</div>
 
-	</div>
-<br><br><br><br><br><br><br><br>
+		</div>
+		<br><br><br><br><br><br><br><br>
 
   <!--blog-->
 			<!-- /Row -->
 			<!-- Footer -->
-{% include "footer.html" %}
+			{% include "footer.html" %}
 
 
 			<!-- jQuery Plugins -->
@@ -97,6 +97,6 @@
 			<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
 
-			</body>
+		</body>
 
-			</html>
+	</html>

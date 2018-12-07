@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
@@ -30,7 +30,7 @@
 	<!-- header wrapper -->
 	<div class="header-wrapper sm-padding bg-grey">
 		<div class="container">
-<h2>LOGIN</h2>
+			<h2>LOGIN</h2>
 		</div>
 	</div>
 	<!-- /header wrapper -->
@@ -39,52 +39,38 @@
 	<!-- Blog -->
 
 
-<div class="container"  style="width: 50%;">
-  <br><br>
-  {% if form.errors %}
-  <div class=" alert alert-danger" role="alert">
-  	<strong>Invalid Credentials</strong>
-  </div>
-  {% else %}
+	<div class="container"  style="width: 50%;">
+  	<br><br>
+  	{% if form.errors %}
+  	<div class=" alert alert-danger" role="alert">
+  		<strong>Invalid Credentials</strong>
+  	</div>
+  	{% else %}
   <!-- <h3> Enter your credentials to login </h3> -->
-  {% endif %}
+  	{% endif %}
 
-  <form role="form" method="post" >
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{next}}"/>
-    <button type="submit">Login</button>
-    <a href="{% url 'password_reset' %}">Forget Password?</a>
-    New User <a href="../register"> Click here! </a> for sign-up
-  </form>
-	<br><br>
+  		<form role="form" method="post" >
+    		{% csrf_token %}
+    		{{ form.as_p }}
+    		<input type="hidden" name="next" value="{{next}}"/>
+    		<button type="submit">Login</button>
+    		<a href="{% url 'password_reset' %}">Forget Password?</a>
+    		New User <a href="../register"> Click here! </a> for sign-up
+  		</form>
+			<br><br>
   </div>
-   <script>
-function myfunc() {
-    document.getElementById("Login").reset();
-}
-</script>
+  <script>
+		function myfunc() {
+    	document.getElementById("Login").reset();
+		}
+	</script>
   <!-- /Blog -->
 
   <!-- Footer -->
-{% include "footer.html" %}
+	{% include "footer.html" %}
 	<!-- /Footer -->
 
-	<!-- Back to top -->
-	<div id="back-to-top"></div>
-	<!-- /Back to top -->
 
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<img src="{% static './img/fav.png' %}" class="preimg"><br><br>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
-	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>

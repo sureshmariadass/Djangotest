@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css'%}" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
@@ -31,7 +31,7 @@
 	<!-- header wrapper -->
 	<div class="header-wrapper sm-padding bg-grey">
 		<div class="container">
-<h2>SIGN UP</h2>
+			<h2>SIGN UP</h2>
 		</div>
 	</div>
 	<!-- /header wrapper -->
@@ -39,11 +39,11 @@
 
 
 	<!-- Blog -->
-{% block content %}
+	{% block content %}
 
-<div class="container" style="width: 50%;">
-<br><br>
-  <form method="post">
+	<div class="container" style="width: 50%;">
+		<br><br>
+  	<form method="post">
     {% csrf_token %}
     {% for field in form %}
       <p>
@@ -59,22 +59,13 @@
     {% endfor %}
     <button type="submit">Sign up</button>
     Already a User <a href="{% url 'login' %}">Click here!</a> for login
-  </form>
-</div>
-
-{% endblock %}
-<br><br><br>
-{% include "footer.html" %}
-	<div id="preloader">
-		<div class="preloader">
-			<img src="{%static './img/fav.png' %}" class="preimg"><br><br>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
+  	</form>
 	</div>
-	<!-- /Preloader -->
+
+	{% endblock %}
+	<br><br><br>
+	{% include "footer.html" %}
+
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>

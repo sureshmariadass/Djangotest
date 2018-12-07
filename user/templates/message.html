@@ -35,21 +35,21 @@
 	{% include "header.html" %}
 	<!-- /Header -->
 	<!-- Blog -->
-<hr>
+	<hr>
 
-<div class="container well">
+	<div class="container well">
 
-<table><tr><td>
-<strong>Name</strong></td><td>:{{ instance.name}}</td></tr><tr><td>
-{% if instance.subject %}
-<strong>Subject</strong></td><td>:{{instance.subject}}</td></tr><tr><td>
-{% else %}
-<strong>Subject</strong></td><td>:No Subject</td></tr><tr><td>
-{% endif %}
-<strong>Mail Id</strong></td><td>:{{instance.email}}</td></tr><tr><td>
-<strong>Sent Date</strong></td><td>:{{instance.sent_date}}</td></tr></table><br>
-<strong>Message:-</strong>
-<p class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ instance.messages}} </p>
+		<table><tr><td>
+			<strong>Name</strong></td><td>:{{ instance.name}}</td></tr><tr><td>
+			{% if instance.subject %}
+			<strong>Subject</strong></td><td>:{{instance.subject}}</td></tr><tr><td>
+			{% else %}
+			<strong>Subject</strong></td><td>:No Subject</td></tr><tr><td>
+			{% endif %}
+			<strong>Mail Id</strong></td><td>:{{instance.email}}</td></tr><tr><td>
+			<strong>Sent Date</strong></td><td>:{{instance.sent_date}}</td></tr></table><br>
+			<strong>Message:-</strong>
+			<p class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ instance.messages}} </p>
 
   </div>
 
@@ -59,7 +59,7 @@
   <!--blog-->
 			<!-- /Row -->
 	<!-- Footer -->
-{% include "footer.html" %}
+	{% include "footer.html" %}
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>

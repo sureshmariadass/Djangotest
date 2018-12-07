@@ -15,7 +15,9 @@ from .forms import ProgressForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+#Courses Blog
 
+@login_required
 def blog(request):
 
     blogs2=CourseDetails.objects.all().values('category').annotate(total=Count('category'))
@@ -47,6 +49,8 @@ def blog(request):
     return render(request,'blog-single.html',blogcourse)
 
 
+#Course Description
+
 def coursedesc(request,id):
     instance=get_object_or_404(CourseDetails,id=id)
     context={
@@ -54,7 +58,7 @@ def coursedesc(request,id):
         "instance":instance
     }
     return render(request,'coursedesc.html',context)
-
+#course Home
 
 def coursehome(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
@@ -66,6 +70,8 @@ def coursehome(request,courseid):
     }
 
     return render(request,'coursehome.html',home)
+
+
 
 def prog(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
@@ -80,6 +86,8 @@ def prog(request,courseid):
 # def coursec(request):
 #     coursec=CourseContent.objects.all()
 #     return render(request,'coursecontent.html',{'coursec':coursec})
+
+#Course Content
 def coursec(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
     instance=CourseDetails.objects.filter(courseid=courseid)
@@ -96,6 +104,9 @@ def coursec(request,courseid):
     }
     return render(request, 'course.html',content)
 
+
+#Add Question
+@login_required
 def exam(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
     context=Question.objects.filter(courseid=courseid)
@@ -130,7 +141,7 @@ def exam(request,courseid):
     }
 
     return render(request,'quiz.html',equestion)
-
+#Course Requirements
 
 def requirements(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
@@ -143,6 +154,8 @@ def requirements(request,courseid):
 
     return render(request,'requirements.html',home)
 
+#Course schedules
+
 def schedules(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
     cohome=CourseDetails.objects.filter(courseid=courseid)
@@ -154,7 +167,8 @@ def schedules(request,courseid):
 
     return render(request,'schedules.html',home)
 
-
+#Progress
+@login_required
 def progress(request,courseid):
     courseid=get_object_or_404(CourseId,courseid=courseid)
     courseref=CourseDetails.objects.filter(courseid=courseid)

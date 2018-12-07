@@ -36,6 +36,7 @@
 	<!-- /Header -->
 
 	<!-- header wrapper -->
+	<!-- Our Customized Courses -->
 	<div class="header-wrapper sm-padding bg-grey">
 		<div class="container">
 			<h2>Our Customized Courses</h2>
@@ -100,12 +101,12 @@
 								<div class="col-md-12">
 									<span class="border border-primary">
 								<form method="GET" action="">
-							<input class="search-input" type="text" name="q" placeholder="search" value='{{ request.GET.q }}' style="width:193px">
-							<input class="btn btn-primary" type="Submit" value="Search" style="height:41px">
-						</form>
+									<input class="search-input" type="text" name="q" placeholder="search" value='{{ request.GET.q }}' style="width:193px">
+									<input class="btn btn-primary" type="Submit" value="Search" style="height:41px">
+								</form>
 								</span>
-						</div>
-						</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!-- /Search -->
@@ -118,7 +119,7 @@
 						<div class="widget-category">
 							<ul class=" list-group">
 								<li class="list-group-item"><a class="btn btn-primary" href="{% url 'blog' %}">All Courses ({{ blogs1.count }})</a></li>
-							{% for i,j in dat%}
+								{% for i,j in dat%}
 							 <li class="list-group-item"><form method="GET" action="">
 						<input class="search-input" type="hidden" name="filter" placeholder="search" value='{{i.category}}' style="width:210px">
 						<input class="btn btn-primary" type="Submit" value="{{i.category}} ({{j.total}})" style="width:100%"><p class="pull-right" style="color:black"></p>
@@ -141,24 +142,9 @@
 
 
 
-<!--
-{{clist}}-->
-	<!-- Footer -->
-	<!-- {% if clist %}
-	{{ clist|length }}
-{% endif %}-->
+
 {% include "footer.html" %}
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<img src="{% static './img/fav.png' %}" class="preimg"><br><br>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
-	<!-- /Preloader -->
+
 
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>

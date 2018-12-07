@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
@@ -29,7 +29,7 @@
 </head>
 <body>
 	<!-- Header -->
-{% include "header.html" %}
+	{% include "header.html" %}
 	<!-- /Header -->
 	<!-- header wapper -->
 
@@ -47,7 +47,7 @@
 		</div>
 		<div class="col-md-6 text-right">
 		<img  src="{{instance.image.url}}" class="himgt">
-	</div>
+		</div>
 	</div>
 	<!-- /header wrapper -->
 
@@ -64,13 +64,12 @@
 
 
 				<!-- Main -->
-				<main id="main">
-							<h1 class="text-center" style="color: #ff5733;">{{instance.name}}</h1>
-							<div class="text-justify">
-				<p style="padding-left: 60px;">{{instance.description }}
-				</p>
-				<p style="padding-left: 60px;">This is a self-paced course that helps you to understand the fundamentals of {{instance.name}}.</p>
-<div>
+			<main id="main">
+				<h1 class="text-center" style="color: #ff5733;">{{instance.name}}</h1>
+				<div class="text-justify">
+					<p style="padding-left: 60px;">{{instance.description }}</p>
+					<p style="padding-left: 60px;">This is a self-paced course that helps you to understand the fundamentals of {{instance.name}}.</p>
+				</div>
 			</main>
 <!-- Row -->
 		<div class="row">
@@ -79,24 +78,26 @@
 						<a href="{% url 'coursehome' courseid=instance.courseid %}"> <i class="fa fa-info-circle" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i></a>
 						<h4>About {{ instance.courseid }}</h4>
 						<p>Get a brief idea about this course to gain interest about the contents</p>
-					</div></div>
-					<div class="col-sm-4">
+					</div>
+				</div>
+				<div class="col-sm-4">
 					<div class="ic">
-					<a href="{% url 'requirements' courseid=instance.courseid %}">	<i class="fa fa-newspaper-o" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i>
-</a>
+				 		<a href="{% url 'requirements' courseid=instance.courseid %}">	<i class="fa fa-newspaper-o" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i>
+						</a>
 						<h4>Basic Requirements</h4>
-						<p>Get to know the basic requirements to have better
-understanding about this course</p>
-					</div></div>
-					<div class="col-sm-4">
+						<p>Get to know the basic requirements to have better understanding about this course</p>
+					</div>
+				</div>
+				<div class="col-sm-4">
 					<div class="ic">
 						<a href="{% url 'schedules' courseid=instance.courseid %}">
 						<i class="fa fa-calendar-plus-o" aria-hidden="true" style="color: #ff5733;font-size:108px;padding-left: 60px;"></i>
-					</a>
+					  </a>
 						<h4>Scheduled Dates</h4>
 						<p>This course will be live until the given scheduled dates. Dont miss it!</p>
-					</div></div>
-			</div>
+					</div>
+				</div>
+		</div>
 			<!-- /Row -->
 		</div>
 		<!-- /Container -->
@@ -105,19 +106,6 @@ understanding about this course</p>
 	<!-- Footer -->
 	{% include "footer.html" %}
 	<!-- /Footer -->
-
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<img src="{% static './img/fav.png' %}" class="preimg"><br><br>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
-	<!-- /Preloader -->
-
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -127,4 +115,4 @@ understanding about this course</p>
 
 	</body>
 
-	</html>
+</html>

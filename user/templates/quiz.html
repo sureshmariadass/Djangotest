@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
@@ -29,68 +29,66 @@
 
 
 <body>
-  {% include "header.html" %}
+	{% include "header.html" %}
 
 
 	<div id="blog" class="section cm-padding" >
-				<nav id="nav" class="nav-transparent well">
+		<nav id="nav" class="nav-transparent well">
 
 			<div class="container">
 
 				<div class="navbar-header">
-				
+
 					<button type="button" class="navbar-toggle btn btn-sm" data-toggle="collapse" data-target="#myNavbar" style="width:50px">
 
-	<img src="{% static 'img/col.png' %}" height="30" width="30">
+						<img src="{% static 'img/col.png' %}" height="30" width="30">
 					</button>
 				</div>
-<div id="myNavbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-left">
+				<div id="myNavbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-left">
 
 
-					<li><a href="{% url 'coursehome' courseid=courseid.courseid %}" style="color: #ff5733">Home</a></li>
+						<li><a href="{% url 'coursehome' courseid=courseid.courseid %}" style="color: #ff5733">Home</a></li>
 
 
-					<li><a href="{% url 'coursecontent' courseid=courseid.courseid %}" style="color: #ff5733">Course</a></li>
-					<li><a href="{% url 'progress' courseid=courseid.courseid %}" style="color: #ff5733">Progress</a></li>
+						<li><a href="{% url 'coursecontent' courseid=courseid.courseid %}" style="color: #ff5733">Course</a></li>
+						<li><a href="{% url 'progress' courseid=courseid.courseid %}" style="color: #ff5733">Progress</a></li>
 
 
-					<li><a href="{% url 'requirements' courseid=courseid.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
-					<li><a href="{% url 'schedules' courseid=courseid.courseid %}" style="color: #ff5733">Schedules</a></li>
+						<li><a href="{% url 'requirements' courseid=courseid.courseid %}" style="color: #ff5733">Basic Requirements</a></li>
+						<li><a href="{% url 'schedules' courseid=courseid.courseid %}" style="color: #ff5733">Schedules</a></li>
 
-					{% if request.user.is_staff and request.user.is_superuser %}
+						{% if request.user.is_staff and request.user.is_superuser %}
 
-					<li>	<a href="{% url 'add_question' courseid=courseid.courseid %}">Add Questions</a></li>
-					{% endif %}
+						<li>	<a href="{% url 'add_question' courseid=courseid.courseid %}">Add Questions</a></li>
+						{% endif %}
 
-				</ul>
-			</div>
+					</ul>
+				</div>
 				<!-- /Main navigation -->
 			</div>
-				</nav>
-			</div>
+		</nav>
+	</div>
 
 
 
 
-<div class="container well">
-<h4 id="test_status"></h4>
-<div id="test"></div>
+	<div class="container well">
+		<h4 id="test_status"></h4>
+		<div id="test"></div>
 
 
 
 
-<form method="POST" id="asd"  class="text-center" style="display:none" >{% csrf_token %}
-  <input type="hidden" value="{{ user.username }}" name="user">
-  <input type="hidden" value="{{ courseid.courseid }}" name="cid">
-  <input type="hidden"  id="myText" value="12" name="correct">
-  <input type="hidden" value="{{ context.count }}" name="total">
-  <input class="btn btn-primary" type="submit" value="View Result" >
-</form>
-</div>
-{% include "footer.html" %}
-
-
+			<form method="POST" id="asd"  class="text-center" style="display:none" >{% csrf_token %}
+		  	<input type="hidden" value="{{ user.username }}" name="user">
+		  	<input type="hidden" value="{{ courseid.courseid }}" name="cid">
+		  	<input type="hidden"  id="myText" value="12" name="correct">
+		  	<input type="hidden" value="{{ context.count }}" name="total">
+		  	<input class="btn btn-primary" type="submit" value="View Result" >
+			</form>
+	</div>
+	{% include "footer.html" %}
 <script>
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
 

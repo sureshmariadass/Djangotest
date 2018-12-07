@@ -27,22 +27,23 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
-<style>
+	<style>
 
-#about-slider
-img{
-	height: 350px;
-	padding-top: 107px
-}
-
-
-</style>
+	#about-slider
+	img{
+		height: 350px;
+		padding-top: 107px
+	}
 
 
+	</style>
 
-	<!-----------Chat settings---------------->
+
+
+	<!----------Chat settings---------------->
 	<script type="text/javascript">function add_chatinline(){var hccid=83539622;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
-add_chatinline(); </script>
+	add_chatinline();
+	</script>
 </head>
 
 <body>
@@ -51,7 +52,8 @@ add_chatinline(); </script>
 		<!-- Background Image -->
 		<div class="bg-img">
 			<img class="img-responsive" src="{% static './img/mo.jpg' %}" style="height:100%;">
-			<div class="overlay"></div>
+			<div class="overlay">
+			</div>
 		</div>
 		<!-- /Background Image -->
 
@@ -119,7 +121,7 @@ add_chatinline(); </script>
 							</p>
 							{% if user.is_authenticated %}
 							{% else %}
-						<a href="login">	<button class="white-btn"style="width: auto;">Login</button></a>
+		  				<a href="login">	<button class="white-btn"style="width: auto;">Login</button></a>
 							<a href="register"><button class="main-btn"style="width: auto;">Register</button></a>
 							{% endif %}
 						</div>
@@ -207,63 +209,64 @@ add_chatinline(); </script>
 				</div>
 				<!-- /Section header -->
 				<!-- Work -->
-				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
-					 <img class="img-responsive" src="{% static './img/logo.png' %}" alt="" >
-					 <div class="container"></br>
-					<p style="font-size:20px;font-style: italic;"> Learning is a TREASURE that will follow its owner everywhere</p><br>
-					<div class="container text-primary bg-info" style="width:50%" >
-					View {{blogs1.count}} Courses
+			<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
+				 <img class="img-responsive" src="{% static './img/logo.png' %}" alt="" >
+				 <div class="container"></br>
+				<p style="font-size:20px;font-style: italic;"> Learning is a TREASURE that will follow its owner everywhere</p><br>
+				<div class="container text-primary bg-info" style="width:50%" >
+				View {{blogs1.count}} Courses
 				</div></div>
-					<div class="overlay"></div>
-					<div class="work-content">
-						<span>Trainocate</span>
-						<h3>Our Customized Courses</h3>
-						<div class="work-link">
+				<div class="overlay"></div>
+				<div class="work-content">
+					<span>Trainocate</span>
+					<h3>Our Customized Courses</h3>
+					<div class="work-link">
 							<a href="/blog/?filter=Trainocate"><i class="fa fa-external-link"></i></a>
-						</div>
 					</div>
 				</div>
+			</div>
 				<!-- /Work -->
 
 				<!-- Work -->
-				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;" >
+			<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;" >
 					<center><img class="img-responsive" src="{% static './img/c1.png' %}" alt="" style="height:57px;width:150px"></center><br>
-					<div class="container"><p style="font-size:20px;font-style: italic;">Driving up the value of the advertising is a big commitment for Cisco's.
+					<div class="container"><p style="font-size:20px;font-style: italic;">Driving up the value of the advertising is a big commitment for Cisco's.</p>
 
-</p>
-<div class="container text-primary bg-info" style="width:50%">
-	View {{blogs2.count}} Courses
-</div></div>
-
-					<div class="overlay"></div>
-					<div class="work-content">
-						<span>Cisco</span>
-						<h3>Certified Courses</h3>
-						<div class="work-link">
-							<a href="/blog/?filter=Microsoft"><i class="fa fa-external-link"></i></a>
+						<div class="container text-primary bg-info" style="width:50%">
+							View {{blogs2.count}} Courses
 						</div>
 					</div>
+
+				<div class="overlay">
 				</div>
+				<div class="work-content">
+	  			<span>Cisco</span>
+					<h3>Certified Courses</h3>
+				 <div class="work-link">
+					<a href="/blog/?filter=Microsoft"><i class="fa fa-external-link"></i></a>
+				 </div>
+				</div>
+			</div>
 				<!-- /Work -->
 				<!-- Work -->
-				<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
-					<img class="img-responsive" src="{% static './img/mst.png' %}" alt="" style="height:56px" >
-					<div class="container">
-<br>
+			<div class="col-md-4 col-xs-4 work text-center" style="height: 300px;overflow: hidden;color:#426caf;">
+				<img class="img-responsive" src="{% static './img/mst.png' %}" alt="" style="height:56px" >
+				<div class="container">
+					<br>
 					<p style="font-size:20px;font-style: italic;">Microsoft is not about greed. It's about innovation and fairness.</P><br>
-						<div class="container text-primary bg-info" style="width:50%;" >
+					<div class="container text-primary bg-info" style="width:50%;" >
 							View {{blogs3.count}} Courses
-						</div>
-					</div>
-					<div class="overlay"></div>
-					<div class="work-content">
-						<span>Microsoft</span>
-						<h3>Certified Courses</h3>
-						<div class="work-link">
-							<a href="/blog/?filter=Cisco"><i class="fa fa-external-link"></i></a>
-						</div>
 					</div>
 				</div>
+				<div class="overlay"></div>
+				<div class="work-content">
+					<span>Microsoft</span>
+					<h3>Certified Courses</h3>
+					<div class="work-link">
+						<a href="/blog/?filter=Cisco"><i class="fa fa-external-link"></i></a>
+					</div>
+				</div>
+			</div>
 				<!-- /Work -->
 			</div>
 			<!-- /Row -->
@@ -406,7 +409,7 @@ add_chatinline(); </script>
 
 
 	<!-- Footer -->
-{% include "footer.html" %}
+	{% include "footer.html" %}
 	<!-- Preloader -->
 	<div id="preloader">
 		<div class="preloader">
@@ -426,7 +429,6 @@ add_chatinline(); </script>
 	<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/animate.js' %}"></script>
-
-</body>
+	</body>
 
 </html>

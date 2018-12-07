@@ -25,29 +25,29 @@
 				{% else %}
 				<li><a href="{% url 'register' %}">Register</a>
 				<li><a href="{% url 'login' %}">Login</a>
-					{% endif %}
-					{% if request.user.is_staff and request.user.is_superuser %}
+				{% endif %}
+				{% if request.user.is_staff and request.user.is_superuser %}
 
-					<li>	<a href="{% url 'msg_list'%}">Messages</a></li>
-					{% endif %}
+				<li>	<a href="{% url 'msg_list'%}">Messages</a></li>
+				{% endif %}
 				<li><a href="{% url 'blog' %}">Explore Courses</a></li>
 
-				<ul class="main-nav nav navbar-nav navbar-right">
-				<li class="has-dropdown"><a><i class="fa fa-user-circle-o"></i></a>
-					<ul class="dropdown">
-						<li><a href="{% url 'profile'%}">{{user.username}}</a></li>
-						{% if user.is_authenticated %}
+					<ul class="main-nav nav navbar-nav navbar-right">
+						<li class="has-dropdown"><a><i class="fa fa-user-circle-o"></i></a>
+							<ul class="dropdown">
+								<li><a href="{% url 'profile'%}">{{user.username}}</a></li>
+								{% if user.is_authenticated %}
 
-						<li><a href="{% url 'logout' %}">Logout</a></li>
-						{% else %}
-						<li><a href="{% url 'login' %}">Login</a></li>
-						{% endif %}
+								<li><a href="{% url 'logout' %}">Logout</a>
+								</li>
+								{% else %}
+								<li><a href="{% url 'login' %}">Login</a></li>
+								{% endif %}
+							</ul>
 					</ul>
-			</ul>
 			<!-- /Main navigation -->
-		</div>
-	</nav>
-	<!-- /Nav -->
-
+			</div>
+		</nav>
+<!-- /Nav -->
 </header>
 <!-- /Header -->
